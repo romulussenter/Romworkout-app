@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
-
+const mockExercises = require('../Mock/exercises');
+const Exercise =require('../Models/exercises');
 
 router.get("/exercises", (req, res, next) => {
-    Exercises.find()
+    
+    Exercise.find()
     .exec()
-    .then(allExercise => {
+    .then(allExercises => {
         res.status(200).json({
             exercises: allExercises
         });
@@ -18,7 +20,7 @@ router.get("/exercises", (req, res, next) => {
 router.get('/exercises/:name', (req, res, next) => {
     const { name } = req.params;
 
-    exercises.findByName(name)
+    Exercise.findById(name)
     .exec()
     .then(selectedExercises => {
         res.status(200).json({
@@ -32,12 +34,12 @@ router.post('/exercises', (req, res, next) => {
     if(!req.body.name) {
         next ({ msg: 'Nope notbhing worked'});
     }
-    const exercises = new Exercises({
+    const exercise = new Exercise({
         name: req.body.name,
         description: req.body.description
     });
 
-    exercises
+    exercise
     .save()
     .then(() => {
         res.status(201).json({

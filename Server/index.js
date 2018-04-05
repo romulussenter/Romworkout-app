@@ -10,9 +10,11 @@ mongoose.connect(process.env.MONGO_URI);
 const PORT = process.env.PORT || 5000;
 
 const exercisesRouter = require ('./Routers/exercises')
+const workoutsRouter = require ('./Routers/workouts')
 serverApp.use(bodyParser.json())
 serverApp.use(bodyParser.urlencoded({ extended: true}));
 serverApp.use(exercisesRouter);
+serverApp.use(workoutsRouter);
 
 serverApp.use(express.static('client/build'));
 
