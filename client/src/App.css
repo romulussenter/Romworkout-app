@@ -1,0 +1,23 @@
+body{
+    background-image: url('http://onesheet.s3.amazonaws.com/user-uploads/21113/images/background.jpg?t=1327417743');
+    text-align: center;
+    color: navy;
+    
+}
+
+h1{
+    font-size: 75px;
+}
+p{
+    color: white;
+}
+
+h1{
+    border: 5px;
+    border-style: solid;
+    border-color: darkgray;
+    height: 160px;
+    background: grey;
+    opacity: 0.5;
+
+}

@@ -13,8 +13,8 @@ class App extends Component {
       exercise: []
     };
 
-  this.handleSubmit = this.handleSubmit.bind(this);
-  this.exerciseToAdd = this.exerciseToAdd.bind(this);
+  this.updateExercise = this.updateExercise.bind(this);
+  this.addExercise = this.addExercise.bind(this);
 
   }
   
@@ -28,7 +28,7 @@ this.setState({
 addExercise(e){
   e.preventDefault();
   this.setState({
-  exercise: [...this.state.exercise, exercise],
+  exercise: [...this.state.exercise],
   exerciseToAdd:''
 
   });
@@ -37,10 +37,12 @@ addExercise(e){
 
   render() {
     return (
-    <div>
+    <div  >
+    <div className='br'></div>
+    
      <h1>Rom's Workout App</h1>
 
-      <form onSubmit={(e) => this.addExercise(e)}>
+      <form onSubmit={(e) => this.addExercise(e)} >
       
         <label>
           <p>Search your exercises!!</p>
