@@ -10,11 +10,15 @@ class App extends Component {
     super();
     this.state = {
       exerciseToAdd: '',
-      exercise: []
+      exercise: [],
+      reps: 0,
+      sets:0
     };
 
   this.updateExercise = this.updateExercise.bind(this);
   this.addExercise = this.addExercise.bind(this);
+  this.repsNumber = this.repsNumber.bind(this);
+  this.setsNumber - this.setsNumber.bind(this);
 
   }
   
@@ -34,12 +38,24 @@ addExercise(e){
   });
 
 }
+repsNumber(e){
+e.preventDefault();
+this.setState({
+  reps: +e.target.value
+});
+}
 
+setsNumber(e){
+  e.preventDefault();
+  this.setState({
+    sets: +e.target.value
+  });
+}
   render() {
     return (
     <div  >
     <div className='br'></div>
-    
+
      <h1>Rom's Workout App</h1>
 
       <form onSubmit={(e) => this.addExercise(e)} >
@@ -50,9 +66,34 @@ addExercise(e){
           onChange={e => this.updateExercise(e)}
           value={this.state.exerciseToAdd} />
         </label>
+        
         <button type='submit'>+</button>
       </form>
-     </div> 
+     
+    <div>
+      <from>
+        <p>Reps</p>
+      <label>
+          <input type='number'
+          onChange={e => this.repsNumber(e)}
+          value={this.state.reps} />
+        </label>
+        </from>
+   
+    <div>
+    <from>
+      <p>Sets</p>
+    <label>
+        <input type='number'
+        onChange={e => this.setsNumber(e)}
+        value={this.state.sets} />
+      </label>
+      </from>
+  </div>
+  </div>
+  </div> 
+
+
     );
   }
 }
